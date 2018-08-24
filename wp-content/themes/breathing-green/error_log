@@ -1,0 +1,32 @@
+[22-Aug-2018 21:56:22 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/breathinggreen/public_html/wp-content/themes/breathing-green/index.php:3
+Stack trace:
+#0 {main}
+  thrown in /home/breathinggreen/public_html/wp-content/themes/breathing-green/index.php on line 3
+[22-Aug-2018 21:56:23 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/breathinggreen/public_html/wp-content/themes/breathing-green/index.php:3
+Stack trace:
+#0 {main}
+  thrown in /home/breathinggreen/public_html/wp-content/themes/breathing-green/index.php on line 3
+[22-Aug-2018 21:56:23 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/breathinggreen/public_html/wp-content/themes/breathing-green/index.php:3
+Stack trace:
+#0 {main}
+  thrown in /home/breathinggreen/public_html/wp-content/themes/breathing-green/index.php on line 3
+[22-Aug-2018 21:56:24 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/breathinggreen/public_html/wp-content/themes/breathing-green/index.php:3
+Stack trace:
+#0 {main}
+  thrown in /home/breathinggreen/public_html/wp-content/themes/breathing-green/index.php on line 3
+[22-Aug-2018 21:56:28 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/breathinggreen/public_html/wp-content/themes/breathing-green/index.php:3
+Stack trace:
+#0 {main}
+  thrown in /home/breathinggreen/public_html/wp-content/themes/breathing-green/index.php on line 3
+[22-Aug-2018 21:56:28 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/breathinggreen/public_html/wp-content/themes/breathing-green/index.php:3
+Stack trace:
+#0 {main}
+  thrown in /home/breathinggreen/public_html/wp-content/themes/breathing-green/index.php on line 3
+[22-Aug-2018 21:56:29 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/breathinggreen/public_html/wp-content/themes/breathing-green/index.php:3
+Stack trace:
+#0 {main}
+  thrown in /home/breathinggreen/public_html/wp-content/themes/breathing-green/index.php on line 3
+[22-Aug-2018 21:56:29 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/breathinggreen/public_html/wp-content/themes/breathing-green/index.php:3
+Stack trace:
+#0 {main}
+  thrown in /home/breathinggreen/public_html/wp-content/themes/breathing-green/index.php on line 3
