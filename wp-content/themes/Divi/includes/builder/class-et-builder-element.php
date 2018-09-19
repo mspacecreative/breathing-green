@@ -16,6 +16,7 @@ require_once 'module/field/Factory.php';
  */
 class ET_Builder_Element {
 	public $name;
+	public $plural;
 	public $slug;
 	public $type;
 	public $child_slug;
@@ -905,8 +906,8 @@ class ET_Builder_Element {
 		if ( strpos( $field_name, '#et_pb_' ) !== false ) {
 			// Truncate field name from the string wherever it's placed
 			$new_field_name = substr( $field_name, strpos( $field_name, '#et_pb_' ) + 7 );
-			$field_name = $new_field_name;
 			$message = "You're Doing It Wrong! You're using wrong name for 'affects' attribute. It should be '" . $new_field_name . "' instead of '" . $field_name . "'";
+			$field_name = $new_field_name;
 			et_debug( $message, 4, false );
 		}
 
@@ -1022,6 +1023,12 @@ class ET_Builder_Element {
 				$shortcode_attributes[ $attribute_key ] = $processed_attr_value;
 				// icon attributes must not be str_replaced
 				continue;
+			}
+
+			// Set empty TinyMCE content '&lt;br /&gt;<br />' as empty string.
+			$field_type = self::$_->array_get( $this->fields_unprocessed, "{$attribute_key}.type" );
+			if ( 'tiny_mce' === $field_type && 'ltbrgtbr' === preg_replace( '/[^a-z]/', '', $processed_attr_value ) ) {
+				$processed_attr_value = '';
 			}
 
 			// URLs are weird since they can allow non-ascii characters so we escape those separately.
@@ -1542,6 +1549,11 @@ class ET_Builder_Element {
 		$this->before_render();
 
 		$content = false !== $global_content ? $global_content : $content;
+
+		// Set empty TinyMCE content '&lt;br /&gt;<br />' as empty string.
+		if ( 'ltbrgtbr' === preg_replace( '/[^a-z]/', '', $content ) ) {
+			$content = '';
+		}
 
 		if ( $et_fb_processing_shortcode_object ) {
 			$this->content = et_pb_fix_shortcodes( $content, $this->decode_entities );
@@ -9526,12 +9538,16 @@ class ET_Builder_Element {
 				$module_name = str_replace( '"', '%%', $module->name );
 				$module_name = str_replace( "'", '||', $module_name );
 
+				$module_name_plural = str_replace( '"', '%%', empty( $module->plural ) ? $module->name : $module->plural );
+				$module_name_plural = str_replace( "'", '||', $module_name_plural );
+
 				$_module = array(
-					'title' => esc_attr( $module_name ),
-					'label' => esc_attr( $module->slug ),
-					'is_parent' => $module->type === 'child' ? 'off' : 'on',
+					'title'              => esc_attr( $module_name ),
+					'plural'             => esc_attr( $module_name_plural ),
+					'label'              => esc_attr( $module->slug ),
+					'is_parent'          => $module->type === 'child' ? 'off' : 'on',
 					'is_official_module' => $module->_is_official_module,
-					'vb_support' => isset( $module->vb_support ) ? $module->vb_support : 'off',
+					'vb_support'         => isset( $module->vb_support ) ? $module->vb_support : 'off',
 				);
 
 				if ( isset( $module->fullwidth ) && $module->fullwidth ) {
@@ -9740,6 +9756,8 @@ class ET_Builder_Element {
 		self::$structure_modules = array();
 		foreach ( $parent_modules as $parent_module ) {
 			if ( isset( $parent_module->is_structure_element ) && $parent_module->is_structure_element ) {
+				$parent_module->plural = empty($parent_module->plural) ? $parent_module->name : $parent_module->plural;
+
 				self::$structure_modules[] = $parent_module;
 			}
 		}
@@ -11422,7 +11440,7 @@ class ET_Builder_Structure_Element extends ET_Builder_Element {
 
 	function generate_column_vars_css() {
 		$output = '';
-		for ( $i = 1; $i < 5; $i++ ) {
+		for ( $i = 1; $i < 7; $i++ ) {
 			$output .= sprintf(
 				'case %1$s :
 					current_module_id_value = typeof et_pb_module_id_%1$s !== \'undefined\' ? et_pb_module_id_%1$s : \'\',
@@ -11440,7 +11458,7 @@ class ET_Builder_Structure_Element extends ET_Builder_Element {
 
 	function generate_column_vars_bg() {
 		$output = '';
-		for ( $i = 1; $i < 5; $i++ ) {
+		for ( $i = 1; $i < 7; $i++ ) {
 			$output .= sprintf(
 				'case %1$s :
 					current_value_bg = typeof et_pb_background_color_%1$s !== \'undefined\' ? et_pb_background_color_%1$s : \'\',
@@ -11519,7 +11537,7 @@ class ET_Builder_Structure_Element extends ET_Builder_Element {
 
 	function generate_column_vars_padding() {
 		$output = '';
-		for ( $i = 1; $i < 5; $i++ ) {
+		for ( $i = 1; $i < 7; $i++ ) {
 			$output .= sprintf(
 				'case %1$s :
 					current_value_pt = typeof et_pb_padding_top_%1$s !== \'undefined\' ? et_pb_padding_top_%1$s : \'\',

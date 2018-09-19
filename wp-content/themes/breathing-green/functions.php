@@ -106,7 +106,7 @@ $role_object->add_cap( 'edit_theme_options' );
 // PRODUCTS LOOP
 function product_loop() {
 	ob_start();
-		include('product_loop.php');
+		include('normal_loop.php');
 	return ob_get_clean();
 }
 

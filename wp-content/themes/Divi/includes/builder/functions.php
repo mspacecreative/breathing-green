@@ -2,7 +2,7 @@
 
 if ( ! defined( 'ET_BUILDER_PRODUCT_VERSION' ) ) {
 	// Note, this will be updated automatically during grunt release task.
-	define( 'ET_BUILDER_PRODUCT_VERSION', '3.12.2' );
+	define( 'ET_BUILDER_PRODUCT_VERSION', '3.15' );
 }
 
 if ( ! defined( 'ET_BUILDER_VERSION' ) ) {
@@ -3310,6 +3310,7 @@ function et_pb_history_localization() {
 			'globaloff'     => esc_html__( 'Disabled Global', 'et_builder' ),
 			'configured'    => esc_html__( 'Configured', 'et_builder' ),
 			'find_replace'  => esc_html__( 'Find & Replace', 'et_builder' ),
+			'extend_styles' => esc_html__( 'Extend Styles', 'et_builder' ),
 		),
 		'noun' => array(
 			'section'           => esc_html__( 'Section', 'et_builder' ),
@@ -3557,11 +3558,11 @@ function et_builder_get_columns() {
 		'specialty' => array(
 			'1_2,1_2' => array(
 				'position' => '1,0',
-				'columns'  => '2',
+				'columns'  => '3',
 			),
 			'1_2,1_2' => array(
 				'position' => '0,1',
-				'columns'  => '2',
+				'columns'  => '3',
 			),
 			'1_4,3_4' => array(
 				'position' => '0,1',
@@ -3571,25 +3572,25 @@ function et_builder_get_columns() {
 				'position' => '1,0',
 				'columns'  => '3',
 			),
-			'1_4,1_2,1_4' => array(
-				'position' => '0,1,0',
-				'columns'  => '2',
+			'1_4,1_4,1_2' => array(
+				'position' => '0,0,1',
+				'columns'  => '3',
 			),
 			'1_2,1_4,1_4' => array(
 				'position' => '1,0,0',
-				'columns'  => '2',
+				'columns'  => '3',
 			),
-			'1_4,1_4,1_2' => array(
-				'position' => '0,0,1',
-				'columns'  => '2',
+			'1_4,1_2,1_4' => array(
+				'position' => '0,1,0',
+				'columns'  => '3',
 			),
 			'1_3,2_3' => array(
 				'position' => '0,1',
-				'columns'  => '2',
+				'columns'  => '4',
 			),
 			'2_3,1_3' => array(
 				'position' => '1,0',
-				'columns'  => '2',
+				'columns'  => '4',
 			),
 		),
 		'regular' => array(
@@ -3597,13 +3598,22 @@ function et_builder_get_columns() {
 			'1_2,1_2',
 			'1_3,1_3,1_3',
 			'1_4,1_4,1_4,1_4',
-			'2_3,1_3',
+			'1_5,1_5,1_5,1_5,1_5',
+			'1_6,1_6,1_6,1_6,1_6,1_6',
+			'2_5,3_5',
+			'3_5,2_5',
 			'1_3,2_3',
+			'2_3,1_3',
 			'1_4,3_4',
 			'3_4,1_4',
-			'1_2,1_4,1_4',
-			'1_4,1_4,1_2',
 			'1_4,1_2,1_4',
+			'1_5,3_5,1_5',
+			'1_4,1_4,1_2',
+			'1_2,1_4,1_4',
+			'1_5,1_5,3_5',
+			'3_5,1_5,1_5',
+			'1_6,1_6,1_6,1_2',
+			'1_2,1_6,1_6,1_6',
 		)
 	);
 
@@ -3614,11 +3624,16 @@ function et_builder_get_columns_layout() {
 	$layout_columns =
 		'<% if ( typeof et_pb_specialty !== \'undefined\' && et_pb_specialty === \'on\' ) { %>
 			<li data-layout="1_2,1_2" data-specialty="1,0" data-specialty_columns="2">
-				<div class="et_pb_layout_column et_pb_column_layout_1_2 et_pb_variations et_pb_2_variations">
+				<div class="et_pb_layout_column et_pb_column_layout_1_2 et_pb_variations et_pb_3_variations">
 					<div class="et_pb_variation et_pb_variation_full"></div>
 					<div class="et_pb_variation_row">
 						<div class="et_pb_variation et_pb_variation_1_2"></div>
 						<div class="et_pb_variation et_pb_variation_1_2"></div>
+					</div>
+					<div class="et_pb_variation_row">
+						<div class="et_pb_variation et_pb_variation_1_3"></div>
+						<div class="et_pb_variation et_pb_variation_1_3"></div>
+						<div class="et_pb_variation et_pb_variation_1_3"></div>
 					</div>
 				</div>
 				<div class="et_pb_layout_column et_pb_column_layout_1_2 et_pb_specialty_column"></div>
@@ -3627,12 +3642,17 @@ function et_builder_get_columns_layout() {
 			<li data-layout="1_2,1_2" data-specialty="0,1" data-specialty_columns="2">
 				<div class="et_pb_layout_column et_pb_column_layout_1_2 et_pb_specialty_column"></div>
 
-				<div class="et_pb_layout_column et_pb_column_layout_1_2 et_pb_variations et_pb_2_variations">
+				<div class="et_pb_layout_column et_pb_column_layout_1_2 et_pb_variations et_pb_3_variations">
 					<div class="et_pb_variation et_pb_variation_full"></div>
 					<div class="et_pb_variation_row">
 						<div class="et_pb_variation et_pb_variation_1_2"></div>
 						<div class="et_pb_variation et_pb_variation_1_2"></div>
 					</div>
+					<div class="et_pb_variation_row">
+						<div class="et_pb_variation et_pb_variation_1_3"></div>
+						<div class="et_pb_variation et_pb_variation_1_3"></div>
+						<div class="et_pb_variation et_pb_variation_1_3"></div>
+					</div>  
 				</div>
 			</li>
 
@@ -3670,22 +3690,32 @@ function et_builder_get_columns_layout() {
 
 			<li data-layout="1_4,1_2,1_4" data-specialty="0,1,0" data-specialty_columns="2">
 				<div class="et_pb_layout_column et_pb_column_layout_1_4 et_pb_specialty_column"></div>
-				<div class="et_pb_layout_column et_pb_column_layout_1_2 et_pb_variations et_pb_2_variations">
+				<div class="et_pb_layout_column et_pb_column_layout_1_2 et_pb_variations et_pb_3_variations">
 					<div class="et_pb_variation et_pb_variation_full"></div>
 					<div class="et_pb_variation_row">
 						<div class="et_pb_variation et_pb_variation_1_2"></div>
 						<div class="et_pb_variation et_pb_variation_1_2"></div>
+					</div>
+					<div class="et_pb_variation_row">
+						<div class="et_pb_variation et_pb_variation_1_3"></div>
+						<div class="et_pb_variation et_pb_variation_1_3"></div>
+						<div class="et_pb_variation et_pb_variation_1_3"></div>
 					</div>
 				</div>
 				<div class="et_pb_layout_column et_pb_column_layout_1_4 et_pb_specialty_column"></div>
 			</li>
 
 			<li data-layout="1_2,1_4,1_4" data-specialty="1,0,0" data-specialty_columns="2">
-				<div class="et_pb_layout_column et_pb_column_layout_1_2 et_pb_variations et_pb_2_variations">
+				<div class="et_pb_layout_column et_pb_column_layout_1_2 et_pb_variations et_pb_3_variations">
 					<div class="et_pb_variation et_pb_variation_full"></div>
 					<div class="et_pb_variation_row">
 						<div class="et_pb_variation et_pb_variation_1_2"></div>
 						<div class="et_pb_variation et_pb_variation_1_2"></div>
+					</div>
+					<div class="et_pb_variation_row">
+						<div class="et_pb_variation et_pb_variation_1_3"></div>
+						<div class="et_pb_variation et_pb_variation_1_3"></div>
+						<div class="et_pb_variation et_pb_variation_1_3"></div>
 					</div>
 				</div>
 				<div class="et_pb_layout_column et_pb_column_layout_1_4 et_pb_specialty_column"></div>
@@ -3695,32 +3725,49 @@ function et_builder_get_columns_layout() {
 			<li data-layout="1_4,1_4,1_2" data-specialty="0,0,1" data-specialty_columns="2">
 				<div class="et_pb_layout_column et_pb_column_layout_1_4 et_pb_specialty_column"></div>
 				<div class="et_pb_layout_column et_pb_column_layout_1_4 et_pb_specialty_column"></div>
-				<div class="et_pb_layout_column et_pb_column_layout_1_2 et_pb_variations et_pb_2_variations">
+				<div class="et_pb_layout_column et_pb_column_layout_1_2 et_pb_variations et_pb_3_variations">
 					<div class="et_pb_variation et_pb_variation_full"></div>
 					<div class="et_pb_variation_row">
 						<div class="et_pb_variation et_pb_variation_1_2"></div>
 						<div class="et_pb_variation et_pb_variation_1_2"></div>
+					</div>
+					<div class="et_pb_variation_row">
+						<div class="et_pb_variation et_pb_variation_1_3"></div>
+						<div class="et_pb_variation et_pb_variation_1_3"></div>
+						<div class="et_pb_variation et_pb_variation_1_3"></div>
 					</div>
 				</div>
 			</li>
 
 			<li data-layout="1_3,2_3" data-specialty="0,1" data-specialty_columns="2">
 				<div class="et_pb_layout_column et_pb_column_layout_1_3 et_pb_specialty_column"></div>
-				<div class="et_pb_layout_column et_pb_column_layout_2_3 et_pb_variations et_pb_2_variations">
+				<div class="et_pb_layout_column et_pb_column_layout_2_3 et_pb_variations et_pb_3_variations">
 					<div class="et_pb_variation et_pb_variation_full"></div>
 					<div class="et_pb_variation_row">
 						<div class="et_pb_variation et_pb_variation_1_2"></div>
 						<div class="et_pb_variation et_pb_variation_1_2"></div>
 					</div>
+					<div class="et_pb_variation_row">
+						<div class="et_pb_variation et_pb_variation_1_4"></div>
+						<div class="et_pb_variation et_pb_variation_1_4"></div>
+						<div class="et_pb_variation et_pb_variation_1_4"></div>
+						<div class="et_pb_variation et_pb_variation_1_4"></div>
+					</div>
 				</div>
 			</li>
 
 			<li data-layout="2_3,1_3" data-specialty="1,0" data-specialty_columns="2">
-				<div class="et_pb_layout_column et_pb_column_layout_2_3 et_pb_variations et_pb_2_variations">
+				<div class="et_pb_layout_column et_pb_column_layout_2_3 et_pb_variations et_pb_3_variations">
 					<div class="et_pb_variation et_pb_variation_full"></div>
 					<div class="et_pb_variation_row">
 						<div class="et_pb_variation et_pb_variation_1_2"></div>
 						<div class="et_pb_variation et_pb_variation_1_2"></div>
+					</div>
+					<div class="et_pb_variation_row">
+						<div class="et_pb_variation et_pb_variation_1_4"></div>
+						<div class="et_pb_variation et_pb_variation_1_4"></div>
+						<div class="et_pb_variation et_pb_variation_1_4"></div>
+						<div class="et_pb_variation et_pb_variation_1_4"></div>
 					</div>
 				</div>
 				<div class="et_pb_layout_column et_pb_column_layout_1_3 et_pb_specialty_column"></div>
@@ -3733,9 +3780,15 @@ function et_builder_get_columns_layout() {
 				<div class="et_pb_layout_column et_pb_column_layout_1_2"></div>
 				<div class="et_pb_layout_column et_pb_column_layout_1_2"></div>
 			</li>
-
-			<% if ( view.model.attributes.specialty_columns === 3 ) { %>
-				<li data-layout="1_3,1_3,1_3">
+			<% if ( view.model.attributes.layout === "2_3" ) { %>
+				<li data-layout="1_4,1_4,1_4,1_4">
+					<div class="et_pb_layout_column et_pb_column_layout_1_4"></div>
+					<div class="et_pb_layout_column et_pb_column_layout_1_4"></div>
+					<div class="et_pb_layout_column et_pb_column_layout_1_4"></div>
+					<div class="et_pb_layout_column et_pb_column_layout_1_4"></div>
+				</li>
+			<% } else { %>
+			    <li data-layout="1_3,1_3,1_3">
 					<div class="et_pb_layout_column et_pb_column_layout_1_3"></div>
 					<div class="et_pb_layout_column et_pb_column_layout_1_3"></div>
 					<div class="et_pb_layout_column et_pb_column_layout_1_3"></div>
@@ -3760,13 +3813,36 @@ function et_builder_get_columns_layout() {
 				<div class="et_pb_layout_column et_pb_column_layout_1_4"></div>
 				<div class="et_pb_layout_column et_pb_column_layout_1_4"></div>
 			</li>
-			<li data-layout="2_3,1_3">
-				<div class="et_pb_layout_column et_pb_column_layout_2_3"></div>
-				<div class="et_pb_layout_column et_pb_column_layout_1_3"></div>
+			<li data-layout="1_5,1_5,1_5,1_5,1_5">
+				<div class="et_pb_layout_column et_pb_column_layout_1_5"></div>
+				<div class="et_pb_layout_column et_pb_column_layout_1_5"></div>
+				<div class="et_pb_layout_column et_pb_column_layout_1_5"></div>
+				<div class="et_pb_layout_column et_pb_column_layout_1_5"></div>
+				<div class="et_pb_layout_column et_pb_column_layout_1_5"></div>
+			</li>
+			<li data-layout="1_6,1_6,1_6,1_6,1_6,1_6">
+				<div class="et_pb_layout_column et_pb_column_layout_1_6"></div>
+				<div class="et_pb_layout_column et_pb_column_layout_1_6"></div>
+				<div class="et_pb_layout_column et_pb_column_layout_1_6"></div>
+				<div class="et_pb_layout_column et_pb_column_layout_1_6"></div>
+				<div class="et_pb_layout_column et_pb_column_layout_1_6"></div>
+				<div class="et_pb_layout_column et_pb_column_layout_1_6"></div>
+			</li>
+			<li data-layout="2_5,3_5">
+				<div class="et_pb_layout_column et_pb_column_layout_2_5"></div>
+				<div class="et_pb_layout_column et_pb_column_layout_3_5"></div>
+			</li>
+			<li data-layout="3_5,2_5">
+				<div class="et_pb_layout_column et_pb_column_layout_3_5"></div>
+				<div class="et_pb_layout_column et_pb_column_layout_2_5"></div>
 			</li>
 			<li data-layout="1_3,2_3">
 				<div class="et_pb_layout_column et_pb_column_layout_1_3"></div>
 				<div class="et_pb_layout_column et_pb_column_layout_2_3"></div>
+			</li>
+			<li data-layout="2_3,1_3">
+				<div class="et_pb_layout_column et_pb_column_layout_2_3"></div>
+				<div class="et_pb_layout_column et_pb_column_layout_1_3"></div>
 			</li>
 			<li data-layout="1_4,3_4">
 				<div class="et_pb_layout_column et_pb_column_layout_1_4"></div>
@@ -3776,20 +3852,47 @@ function et_builder_get_columns_layout() {
 				<div class="et_pb_layout_column et_pb_column_layout_3_4"></div>
 				<div class="et_pb_layout_column et_pb_column_layout_1_4"></div>
 			</li>
+			<li data-layout="1_4,1_2,1_4">
+				<div class="et_pb_layout_column et_pb_column_layout_1_4"></div>
+				<div class="et_pb_layout_column et_pb_column_layout_1_2"></div>
+				<div class="et_pb_layout_column et_pb_column_layout_1_4"></div>
+			</li>
+			<li data-layout="1_5,3_5,1_5">
+				<div class="et_pb_layout_column et_pb_column_layout_1_5"></div>
+				<div class="et_pb_layout_column et_pb_column_layout_3_5"></div>
+				<div class="et_pb_layout_column et_pb_column_layout_1_5"></div>
+			</li>	
+			<li data-layout="1_4,1_4,1_2">
+				<div class="et_pb_layout_column et_pb_column_layout_1_4"></div>
+				<div class="et_pb_layout_column et_pb_column_layout_1_4"></div>
+				<div class="et_pb_layout_column et_pb_column_layout_1_2"></div>
+			</li>	
 			<li data-layout="1_2,1_4,1_4">
 				<div class="et_pb_layout_column et_pb_column_layout_1_2"></div>
 				<div class="et_pb_layout_column et_pb_column_layout_1_4"></div>
 				<div class="et_pb_layout_column et_pb_column_layout_1_4"></div>
 			</li>
-			<li data-layout="1_4,1_4,1_2">
-				<div class="et_pb_layout_column et_pb_column_layout_1_4"></div>
-				<div class="et_pb_layout_column et_pb_column_layout_1_4"></div>
+			<li data-layout="1_5,1_5,3_5">
+				<div class="et_pb_layout_column et_pb_column_layout_1_5"></div>
+				<div class="et_pb_layout_column et_pb_column_layout_1_5"></div>
+				<div class="et_pb_layout_column et_pb_column_layout_3_5"></div>
+			</li>
+			<li data-layout="3_5,1_5,1_5">
+				<div class="et_pb_layout_column et_pb_column_layout_3_5"></div>
+				<div class="et_pb_layout_column et_pb_column_layout_1_5"></div>
+				<div class="et_pb_layout_column et_pb_column_layout_1_5"></div>
+			</li>
+			<li data-layout="1_6,1_6,1_6,1_2">
+				<div class="et_pb_layout_column et_pb_column_layout_1_6"></div>
+				<div class="et_pb_layout_column et_pb_column_layout_1_6"></div>
+				<div class="et_pb_layout_column et_pb_column_layout_1_6"></div>
 				<div class="et_pb_layout_column et_pb_column_layout_1_2"></div>
 			</li>
-			<li data-layout="1_4,1_2,1_4">
-				<div class="et_pb_layout_column et_pb_column_layout_1_4"></div>
+			<li data-layout="1_2,1_6,1_6,1_6">
 				<div class="et_pb_layout_column et_pb_column_layout_1_2"></div>
-				<div class="et_pb_layout_column et_pb_column_layout_1_4"></div>
+				<div class="et_pb_layout_column et_pb_column_layout_1_6"></div>
+				<div class="et_pb_layout_column et_pb_column_layout_1_6"></div>
+				<div class="et_pb_layout_column et_pb_column_layout_1_6"></div>
 			</li>
 	<%
 		}
