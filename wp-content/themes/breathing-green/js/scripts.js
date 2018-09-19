@@ -1,26 +1,5 @@
 $('footer li.menu-item-has-children').prepend('<span class="sub-toggle"><i class="fa fa-angle-down"></i></span>').removeClass('menu-item-has-children');
 
-/*$('.login-button a').click(function (e) {
-	e.preventDefault();
-	$('.login-form-container').fadeIn();
-});
-
-$('.close-button').click(function () {
-	$(this).parent().parent().fadeOut();
-});
-
-$(window).scroll(function () {
-	if($('#main-header').hasClass('et-fixed-header')) {
-		$(".centered-inline-logo-wrap img, .logo_container img").attr("src", "../../uploads/2018/07/breathing-green-wordmark.png");
-	} else {
-		$(".centered-inline-logo-wrap img, .logo_container img").attr("src", "../../themes/breathing-green/img/logo/breathing-green-logo.png");
-	}
-});
-
-$('.copy-container .green_cta_button').click(function (e) {
-	e.preventDefault();
-});*/
-
 // ANIMATE HORIZONTAL GRAPHS
 $.fn.isInViewport = function() {
     var elementTop = $(this).offset().top;
@@ -32,13 +11,64 @@ $.fn.isInViewport = function() {
     return elementBottom > viewportTop && elementTop < viewportBottom;
 };
 
-// LINK PREVIOUS PAGE FOR FORM
-//$(document).ready(function () {
-	//$('.page-id-390 .wpcf7').children('p').wrap('<a href="http://localhost/breathing-green/register/"/>');
-//});
+$('.absolute-position .video-toggle, .absolute-position-mobile .video-toggle').click(function() {
+    $('body').addClass('show-video');
+       if ($('body').hasClass('show-video')) {
+          $('.yt-video').fadeIn();
+       }
+    });
+	
+	$('.close-button').click(function() {
+		$('.yt-video').fadeOut();
+		$('body').removeClass('show-video');
+		
+		var video = $("#promo-video").attr("src");
+		$("#promo-video").attr("src","");
+		$("#promo-video").attr("src",video);
+	});
+	
+	var player;
+	function onYouTubePlayerAPIReady() {player = new YT.Player('player');}
+		$('.close-button').click(function() {
+		player.stopVideo();
+	});
 
-/*$(window).on('resize scroll', function() {
-    if ($('.progress-bar > span').isInViewport()) {
-        $('.progress-bar > span').siblings('.hidden-graph').removeClass('hidden-graph').addClass('show');
-    }
-});*/
+jQuery(function($){
+		$('#filter').submit(function(){
+			var filter = $('#filter');
+			$.ajax({
+				url:filter.attr('action'),
+				data:filter.serialize(), // form data
+				type:filter.attr('method'), // POST
+				beforeSend:function(xhr){
+					filter.find('button').text('Processing...'); // changing the button label
+					$('#response').css('opacity', '.25');
+					$('.product-loading').addClass('visible');
+				},
+				success:function(data){
+					filter.find('button').text('Apply filter'); // changing the button label back
+					$('#response').html(data).css('opacity', '1'); // insert data
+					$('.product-loading').removeClass('visible');
+				}
+			});
+			return false;
+		});
+	});
+
+$('p').each(function() {
+    var $this = $(this);
+    if($this.html().replace(/\s|&nbsp;/g, '').length == 0)
+        $this.remove();
+});
+
+function pageContainerPadding() {
+	$('#page-container').css('padding-top', $('header').outerHeight());
+}
+
+$(document).ready(function() {
+	pageContainerPadding();
+});
+
+$(window).resize(function() {
+	pageContainerPadding();
+});

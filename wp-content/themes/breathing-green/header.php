@@ -47,6 +47,14 @@
 	<script type="text/javascript">
 		document.documentElement.className = 'js';
 	</script>
+	
+	<!--<script>
+	$(document).ready( function () {
+		$('.fluid-width-video-wrapper').remove();
+	});
+	</script>-->
+	
+	<script type="text/javascript" src="http://www.youtube.com/player_api"></script>
 
 	<?php wp_head(); ?>
 </head>

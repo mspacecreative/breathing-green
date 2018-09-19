@@ -1273,19 +1273,25 @@ function et_fb_backend_helpers() {
 				'tablet'  => esc_html__( 'Tablet', 'et_builder' ),
 				'phone'   => esc_html__( 'Smartphone', 'et_builder' ),
 			),
+			'element'                  => esc_html__( 'Element', 'et_builder' ),
 		),
 		'rightClickMenuItems' => array(
 			'undo'            => esc_html__( 'Undo', 'et_builder' ),
 			'redo'            => esc_html__( 'Redo', 'et_builder' ),
 			'lock'            => esc_html__( 'Lock', 'et_builder' ),
+			'lock_items'      => esc_html__( 'Lock', 'et_builder' ),
 			'unlock'          => esc_html__( 'Unlock', 'et_builder' ),
 			'copy'            => esc_html__( 'Copy', 'et_builder' ),
+			'copy_items'      => esc_html__( 'Copy Elements', 'et_builder' ),
 			'paste'           => esc_html__( 'Paste', 'et_builder' ),
+			'paste_items'     => esc_html__( 'Paste Elements', 'et_builder' ),
 			'reset'           => esc_html__( 'Reset', 'et_builder' ),
+			'reset_styles'    => esc_html__( 'Reset Styles', 'et_builder' ),
 			'styles'          => esc_html__( 'Styles', 'et_builder' ),
 			'copyStyle'       => esc_html__( 'Copy Style', 'et_builder' ),
 			'pasteStyle'      => esc_html__( 'Paste Style', 'et_builder' ),
 			'disable'         => esc_html__( 'Disable', 'et_builder' ),
+			'disable_items'   => esc_html__( 'Disable', 'et_builder' ),
 			'enable'          => esc_html__( 'Enable', 'et_builder' ),
 			'save'            => esc_html__( 'Save to Library', 'et_builder' ),
 			'startABTesting'  => esc_html__( 'Split Test', 'et_builder' ),
@@ -1294,6 +1300,9 @@ function et_fb_backend_helpers() {
 				'module'      => esc_html__( 'Module', 'et_builder' ),
 				'row'         => esc_html__( 'Row', 'et_builder' ),
 				'section'     => esc_html__( 'Section', 'et_builder' ),
+				'modules'     => esc_html__( 'Modules', 'et_builder' ),
+				'rows'        => esc_html__( 'Rows', 'et_builder' ),
+				'sections'    => esc_html__( 'Sections', 'et_builder' ),
 			),
 			'disableGlobal'   => esc_html__( 'Disable Global', 'et_builder' ),
 			'collapse'        => esc_html__( 'Collapse', 'et_builder' ),
@@ -1305,6 +1314,11 @@ function et_fb_backend_helpers() {
 			'item'            => esc_html__( 'Item', 'et_builder' ),
 			'go_to_option'    => esc_html__( 'Go To Option', 'et_builder' ),
 			'find_replace'    => esc_html__( 'Find & Replace', 'et_builder' ),
+			'extend_styles'   => array(
+				'module'        => esc_html__( 'Extend %s Styles', 'et_builder' ),
+				'options_group' => esc_html__( 'Extend %s Styles', 'et_builder' ),
+				'option'        => esc_html__( 'Extend %s', 'et_builder' ),
+			),
 		),
 		'tooltips'            => array(
 			'insertModule'     => esc_html__( 'Insert Module', 'et_builder' ),
@@ -1384,6 +1398,42 @@ function et_fb_backend_helpers() {
 			'show_only'             => esc_html__( 'Show Only', 'et_builder' ),
 			'filterNotice'          => esc_html__( 'No options exist for this search query. Click here to clear your search filters.', 'et_builder' ),
 			'filterNoticeClickable' => esc_html__( 'Click here', 'et_builder' ),
+			'extend_styles'         => array(
+				'title'   => esc_html__( 'Extend Styles', 'et_builder' ),
+				'button'  => esc_html__( 'Extend', 'et_builder' ),
+				'options' => array(
+					'to'         => array(
+						'containers' => array(),
+						'modules'    => array(
+							'module' => esc_html__( 'All Modules', 'et_builder' ),
+						),
+					),
+					'throughout' => array(
+						'page'    => esc_html__( 'This Page', 'et_builder' ),
+						'section' => esc_html__( 'This Section', 'et_builder' ),
+						'row'     => esc_html__( 'This Row', 'et_builder' ),
+						'column'  => esc_html__( 'This Column', 'et_builder' ),
+					),
+				),
+				'groups' => array(
+					'to' => array(
+						'containers' => esc_html__( 'Containers', 'et_builder' ),
+						'modules'    => esc_html__( 'Modules', 'et_builder' ),
+					),
+				),
+				'labels' => array(
+					'to'                   => esc_html__( 'To', 'et_builder' ),
+					'throughout'           => esc_html__( 'Throughout', 'et_builder' ),
+					// translators: %s is Plural Module Name.
+					'all'                  => esc_html__( 'All %s', 'et_builder' ),
+					// translators: %1$s is Module Name, %2$s is Plural Module Name.
+					'extend_module'        => esc_html__( 'Extend This %1$s\'s Styles To All %2$s', 'et_builder' ),
+					// translators: %s is Options Group Name.
+					'extend_options_group' => esc_html__( 'Extend This %s\'s Styles', 'et_builder' ),
+					// translators: %s is option Field Name.
+					'extend_option'        => esc_html__( 'Extend This %s', 'et_builder' ),
+				),
+			),
 		),
 		'selectControl' => array(
 			'typeToSearch' => esc_html__( 'Start Typing', 'et_builder' ),
@@ -1400,6 +1450,7 @@ function et_fb_backend_helpers() {
 				),
 			),
 			'meta' => et_pb_history_localization(),
+			'elements' => esc_html__( 'Elements', 'et_builder' ),
 		),
 		'findReplace' => array(
 			'modal' => array(

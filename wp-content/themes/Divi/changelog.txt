@@ -1,3 +1,126 @@
+version 3.15 ( updated 09-13-2018 )
+- Added Multiselect and Bulk Editing to the Visual Builder.
+- Fixed missing "Reply To" in Contact Form module email when the email field is not set to required.
+- Fixed Grid Mode UI being shown from hovered section/rows/modules even after it is turned off.
+- Fixed a bug where the wrong information was given in a debug message.
+- Included the missing screen-reader-text class style in Divi.
+- Fixed contact form not accepting 0 (zero) as a valid field value for required fields.
+- Added shift key support for the range control.
+- Fixed a bug where the Drag & Drop File Upload system was rejecting some files that should have been accepted due to file extension not being all lowercase.
+- Fixed issue with inability to set tablet and phone responsive options to their default values.
+- Fixed the font dropdown overlap with the options underneath in VB.
+- Fixed Tooltip Modals animation when opening new modal from Page Settings Bar while another modal is not closed and vice versa.
+- Fixed the inverted view on the Row Builder button group in the VB.
+- Updated custom fields retrieval and processing functions for Mailchimp to make it work with custom field names.
+	* core/components/api/email/MailChimp.php
+	* includes/builder/class-et-builder-element.php
+	* includes/builder/frontend-builder/bundle.js
+	* includes/builder/frontend-builder/helpers.php
+	* includes/builder/module/ContactForm.php
+	* includes/builder/styles/frontend-builder-style.less
+
+version 3.14 ( updated 09-06-2018 )
+- Added "Extend Styles" right click option to menus for Modules, Option Groups and Individual Options.
+	* includes/builder/class-et-builder-element.php
+	* includes/builder/frontend-builder/bundle.js
+	* includes/builder/frontend-builder/helpers.php
+	* includes/builder/functions.php
+	* includes/builder/main-structure-elements.php
+	* includes/builder/module/Accordion.php
+	* includes/builder/module/AccordionItem.php
+	* includes/builder/module/Audio.php
+	* includes/builder/module/BarCounters.php
+	* includes/builder/module/BarCountersItem.php
+	* includes/builder/module/Blog.php
+	* includes/builder/module/Blurb.php
+	* includes/builder/module/Button.php
+	* includes/builder/module/CircleCounter.php
+	* includes/builder/module/Code.php
+	* includes/builder/module/Comments.php
+	* includes/builder/module/ContactForm.php
+	* includes/builder/module/ContactFormItem.php
+	* includes/builder/module/CountdownTimer.php
+	* includes/builder/module/Cta.php
+	* includes/builder/module/Divider.php
+	* includes/builder/module/FilterablePortfolio.php
+	* includes/builder/module/FullwidthCode.php
+	* includes/builder/module/FullwidthHeader.php
+	* includes/builder/module/FullwidthImage.php
+	* includes/builder/module/FullwidthMap.php
+	* includes/builder/module/FullwidthMenu.php
+	* includes/builder/module/FullwidthPortfolio.php
+	* includes/builder/module/FullwidthPostSlider.php
+	* includes/builder/module/FullwidthPostTitle.php
+	* includes/builder/module/FullwidthSlider.php
+	* includes/builder/module/Gallery.php
+	* includes/builder/module/Image.php
+	* includes/builder/module/Login.php
+	* includes/builder/module/Map.php
+	* includes/builder/module/MapItem.php
+	* includes/builder/module/NumberCounter.php
+	* includes/builder/module/Portfolio.php
+	* includes/builder/module/PostSlider.php
+	* includes/builder/module/PostTitle.php
+	* includes/builder/module/PostsNavigation.php
+	* includes/builder/module/PricingTables.php
+	* includes/builder/module/PricingTablesItem.php
+	* includes/builder/module/Search.php
+	* includes/builder/module/Shop.php
+	* includes/builder/module/Sidebar.php
+	* includes/builder/module/Signup.php
+	* includes/builder/module/SignupItem.php
+	* includes/builder/module/Slider.php
+	* includes/builder/module/SliderItem.php
+	* includes/builder/module/SocialMediaFollow.php
+	* includes/builder/module/SocialMediaFollowItem.php
+	* includes/builder/module/Tabs.php
+	* includes/builder/module/TabsItem.php
+	* includes/builder/module/TeamMember.php
+	* includes/builder/module/Testimonial.php
+	* includes/builder/module/Text.php
+	* includes/builder/module/Toggle.php
+	* includes/builder/module/Video.php
+	* includes/builder/module/VideoSlider.php
+	* includes/builder/module/VideoSliderItem.php
+
+version 3.13.1 ( updated 09-1-2018 )
+- Fixed broken font uploader modal.
+- Fixed unwanted padding in font uploader modal.
+	* includes/builder/frontend-builder/bundle.js
+
+version 3.13 ( updated 08-30-2018 )
+- Added new column structures to the Divi Builder.
+- Added new footer column layouts.
+- Improved the Visual Builder tooltip modal automatic sizing and positioning.
+- Fixed a bug that prevented loading premade layouts on some servers.
+- Removed extra space that appeared in the Visual Builder when there was an empty TinyMCE area on the page.
+- Fixed an error that occurred when subscribing to a MailPoet list due to malformed custom fields.
+- Fixed broken accordion module animation in Safari.
+- Removed dashes from contact form field titles in the Visual Builder.
+- Fixed a bug that caused the portability tooltip to open in the wrong location when triggered by drag and drop file upload.
+	* css/theme-customizer-controls-styles.css
+	* functions.php
+	* images/footer-layouts.png
+	* includes/functions/choices.php
+	* includes/functions/sidebars.php
+	* sidebar-footer.php
+	* includes/builder/scripts/frontend-builder-scripts.js
+	* includes/builder/class-et-builder-element.php
+	* includes/builder/functions.php
+	* includes/builder/main-structure-elements.php
+	* includes/builder/scripts/frontend-builder-scripts.js
+	* includes/builder/styles/frontend-builder-global-style.css
+	* includes/builder/styles/frontend-builder-grid.less
+	* includes/builder/styles/frontend-builder-shared-conditional-style.css
+	* includes/builder/styles/frontend-builder-shared-conditional-style.less
+	* includes/builder/styles/frontend-builder-style.css
+	* includes/builder/styles/frontend-builder-style.less
+	* includes/builder/styles/style.css
+	* includes/builder/frontend-builder/assets/css/responsive-preview-wrapped.css
+	* includes/builder/frontend-builder/assets/css/responsive-preview.css
+	* includes/builder/feature/Library.php
+	* core/components/api/email/_MailPoet3.php
+
 version 3.12.2 ( updated 08-16-2018 )
 - Fixed a bug that caused animations to remove module design styles such as background colors.
 	* includes/builder/scripts/frontend-builder-scripts.js
